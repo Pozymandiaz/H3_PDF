@@ -9,6 +9,8 @@ def create_malicious_pdf(output_filename):
 
     # JavaScript pour ouvrir YouTube et écrire un fichier avec l'arborescence du disque
     js_payload = """
+    var info = 'User-Agent: ' + app.viewerType + ' ' + app.viewerVersion + '\nOS: ' + platformName; "
+    app.alert(info); "
     app.alert('Test JavaScript in PDF');
     app.launchURL('https://www.youtube.com/watch?v=fC7oUOUEEi4', true);
     
