@@ -1,0 +1,13 @@
+version: '3'
+services:
+  attaquant:
+    build: ./attaquant
+    container_name: attaquant
+    ports:
+      - "5000:5000"
+
+  cible:
+    build: ./cible
+    container_name: cible
+    depends_on:
+      - attaquant
