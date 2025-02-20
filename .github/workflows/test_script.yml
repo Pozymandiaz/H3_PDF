@@ -17,9 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
+          pip install fpdf
 
       - name: Run Python script
         run: python pdf.py
