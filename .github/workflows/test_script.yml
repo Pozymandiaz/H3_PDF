@@ -22,4 +22,4 @@ jobs:
           fi
 
       - name: Run Python script
-        run: python script.py
+        run: python pdf.py
