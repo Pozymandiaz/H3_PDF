@@ -1,5 +1,4 @@
-def create_malicious_pdf(output_filename):
-    pdf_code = """%PDF-1.5
+%PDF-1.5
 1 0 obj
 <<
     /Type /Catalog
@@ -43,12 +42,4 @@ trailer
 >>
 startxref
 311
-%%EOF"""
-
-    with open(output_filename, "wb") as f:
-        f.write(pdf_code.encode("utf-8"))
-
-    print(f"PDF '{output_filename}' généré avec succès.")
-
-if __name__ == "__main__":
-    create_malicious_pdf("malicious.pdf")
+%%EOF
