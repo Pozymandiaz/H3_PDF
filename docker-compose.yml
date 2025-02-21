@@ -4,7 +4,7 @@ services:
     build: ./attaquant
     container_name: attaquant
     ports:
-      - "5000:5000"
+      - "5999:5999"
 
   cible:
     build: ./cible

